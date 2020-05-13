@@ -3,15 +3,20 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- <mapper namespace="myspring.user.dao.mapper.UserMapper"> -->
 <mapper namespace="userNS">
-
+	<!-- SqlSession의 selectOne(statement, parameter) 매서드 사용 
+	session.selectOne("userNS.select
+	-->
 	<select id="selectUserById" parameterType="string" resultType="User">
 		select * from users where userid=#{value}
 	</select>
-
+	<!-- SqlSession의 selectList() 매서드 사용 -->
 	<select id="selectUserList" resultType="User">
 		select * from users order by userid
 	</select>
-
+	
+	<!-- MyBatis가 UserVO의 getter 매서드를 호출한다. 
+		#{userId} => getUserId()
+	-->
 	<insert id="insertUser" parameterType="User">
 		insert into users
 		values(#{userId},#{name},#{gender},#{city} )

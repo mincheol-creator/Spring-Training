@@ -8,6 +8,7 @@
 	<context:property-placeholder location="classpath:config/db.properties"/>
 	<!-- SqlSessionTemplate 설정 -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	<!--  SqlSessionTemlplate(SqlSessionFactory -->
 		<constructor-arg ref="sqlSessionFactory" />	
 	</bean>
 	
@@ -32,7 +33,7 @@
 	</bean>
 
 	<!--  Component Scanning Settings -->
-	<context:component-scan base-package="myspring.di.annot"/>
+	<context:component-scan base-package="myspring.di.annot, myspring.user"/>
 
 	<!--   StringPrinter 클래스를 Bean으로 등록 -->
 	<bean id="strPrinter" class="myspring.di.xml.StringPrinter" />
